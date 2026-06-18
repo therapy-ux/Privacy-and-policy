@@ -148,7 +148,7 @@
   <td>HIPAA Business Associate Agreement</td>
 </tr>
 <tr>
-  <td>Cloud hosting and infrastructure provider: Amazon Web Services (AWS)</td>
+  <td>Cloud hosting and infrastructure provider: [CONFIRM — BACKEND HOSTING PROVIDER, e.g., Google Cloud / Firebase]</td>
   <td>All categories, encrypted</td>
   <td>Hosting, storage, backup</td>
   <td>Business Associate Agreement</td>
@@ -160,16 +160,22 @@
   <td>Business Associate Agreement and PCI-DSS</td>
 </tr>
 <tr>
+  <td>App distribution platforms: Apple App Store and Google Play</td>
+  <td>App download and update delivery; no PHI shared</td>
+  <td>Distribute and update the mobile application</td>
+  <td>Standard app store terms; PHI is not shared with the stores</td>
+</tr>
+<tr>
   <td>Push notification and messaging provider: Firebase Cloud Messaging (Google)</td>
   <td>Minimum necessary metadata to deliver alerts; no clinical details in notification bodies</td>
   <td>Deliver case assignment and visit reminder notifications</td>
   <td>Contractual PHI exclusion (no PHI transmitted in notification payloads)</td>
 </tr>
 <tr>
-  <td>Error monitoring and crash reporting provider: Sentry</td>
+  <td>Error monitoring and crash reporting provider: Firebase Crashlytics (Google)</td>
   <td>Technical diagnostic data; PHI scrubbed from logs</td>
   <td>Identify and resolve software defects</td>
-  <td>Business Associate Agreement and contractual PHI exclusion</td>
+  <td>Contractual PHI exclusion (PHI is scrubbed from crash logs; Crashlytics is not used to process PHI)</td>
 </tr>
 <tr>
   <td>Auditors, attorneys, accountants, consultants</td>
