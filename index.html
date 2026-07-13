@@ -22,7 +22,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
       --bg: #10151c;
       --text-primary: #e6ebf1;
       --text-meta: #a2adbb;
@@ -36,6 +36,35 @@
       --table-header-bg: #262f3b;
       color-scheme: dark;
     }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10151c;
+    --text-primary: #e6ebf1;
+    --text-meta: #a2adbb;
+    --link: #5c9fda;
+    --notice-bg: #16324c;
+    --notice-border: #a9d0f5;
+    --toc-bg: #1a212b;
+    --toc-border: #2c3644;
+    --hr: #2c3644;
+    --table-border: #2c3644;
+    --table-header-bg: #262f3b;
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    --bg: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-meta: #666666;
+    --link: #1a73e8;
+    --notice-bg: #fff8e1;
+    --notice-border: #f0b400;
+    --toc-bg: #f7f7f9;
+    --toc-border: #e3e3e8;
+    --hr: #dddddd;
+    --table-border: #d8d8d8;
+    --table-header-bg: #f4f4f6;
+    color-scheme: light;
   }
 
   * { box-sizing: border-box; }
@@ -89,8 +118,6 @@
 
   a { color: var(--link); }
 
-  /* Table wrapper enables horizontal scroll on narrow viewports without
-     altering table structure or content */
   .table-scroll {
     width: 100%;
     overflow-x: auto;
@@ -140,7 +167,6 @@
 </style>
 </head>
 <body>
-
 <h1>Privacy Policy</h1>
 <p class="meta"><strong>Home Care</strong> &middot; Effective Date: 5/15/2026 &middot; Last Updated: 6/17/2026</p>
 <p>This Privacy Policy describes how <strong>Physical Therapy of the City P.C., d/b/a Home Recovery Therapy Services</strong> (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, discloses, and protects personal information when you use the Home Care mobile application, web console, and related services (collectively, the &ldquo;Service&rdquo;).</p>
@@ -427,4 +453,22 @@
 <p>You may also file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights at <a href="https://www.hhs.gov/ocr/complaints/">https://www.hhs.gov/ocr/complaints/</a>. We will not retaliate against you for filing a complaint.</p>
 <p class="meta" style="margin-top:3em;">&copy; 2026 Physical Therapy of the City P.C., d/b/a Home Recovery Therapy Services. All rights reserved.</p>
 
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var initial = params.get('theme');
+    if (initial === 'dark' || initial === 'light') {
+      document.documentElement.setAttribute('data-theme', initial);
+    }
+
+    window.setAppTheme = function (theme) {
+      if (theme === 'dark' || theme === 'light') {
+        document.documentElement.setAttribute('data-theme', theme);
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    };
+  })();
+</script>
+</body>
 </html>
